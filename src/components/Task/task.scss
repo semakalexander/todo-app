@@ -1,0 +1,69 @@
+@import '../../styles/constants.scss';
+
+.todo-task {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  width: 400px;
+
+  .description {
+    margin-left: 8px;
+    font-size: 18px;
+    flex: 2;
+  }
+
+  .todo-input {
+    flex: 2;
+  }
+
+  .todo-date-picker {
+    flex: 1;
+    margin-left: 10px;
+
+    .todo-input {
+      text-align: end;
+    }
+  }
+
+  .right {
+    margin-left: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+  }
+
+  .pencil-icon {
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
+    fill: $primary;
+    cursor: pointer;
+  }
+
+  .no-due-date-text {
+    font-size: 18px;
+  }
+
+  .check-mark-icon {
+    width: 16px;
+    height: 16px;
+    fill: $primary;
+  }
+
+  &.checked {
+    .description {
+      text-decoration: line-through;
+      color: $disabled;
+    }
+
+    .no-due-date-text {
+      color: $disabled;
+    }
+
+    .pencil-icon {
+      fill: $disabled;
+    }
+  }
+}
