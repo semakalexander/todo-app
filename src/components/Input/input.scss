@@ -1,0 +1,24 @@
+@import '../../styles/constants.scss';
+
+.todo-input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid $primary;
+  height: 24px;
+  line-height: 20px;
+  padding: 2px 6px;
+  color: $primary;
+  font-weight: 500;
+  font-size: 14px;
+  width: 100%;
+  background: #feffff;
+  width: 100%;
+
+  &::placeholder {
+    color: #7f7f7f;
+  }
+
+  &:read-only {
+    border: none;
+  }
+}
