@@ -1,0 +1,45 @@
+.todo-tabs {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+
+  .tab {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 6px 12px;
+    background-color: #35b8ad;
+    border-bottom: 2px solid transparent;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    &.active {
+      background: #fff;
+      border-bottom: 2px solid #35b8ad;
+
+      color: #35b8ad;
+    }
+
+    &:first-child {
+      margin-left: 0;
+      // border-left: 1px solid none;
+
+      &.active {
+        border-left: 2px solid #35b8ad;
+      }
+    }
+
+    &:last-child {
+      border-right: 2px solid #35b8ad;
+    }
+
+    &:hover {
+      background: #35b8ad;
+
+      &.active {
+        background: #fff;
+      }
+    }
+  }
+}
