@@ -1,0 +1,30 @@
+@import '../../styles/constants.scss';
+
+.new-task-container {
+  border: 2px solid $primary;
+  padding: 36px 24px 12px;
+  min-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .instructions-text {
+    font-size: 16px;
+    color: $primary;
+  }
+
+  .todo-input {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .todo-datepicker {
+    margin-top: 20px;
+  }
+
+  .todo-button {
+    margin-top: 20px;
+    align-self: center;
+  }
+}
