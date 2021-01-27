@@ -1,0 +1,23 @@
+@import '../../styles/constants.scss';
+
+.todo-button {
+  padding: 4px 12px;
+  background: $primary;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    background: #35b8ad;
+  }
+
+  &:disabled {
+    background: $disabled;
+    cursor: not-allowed;
+  }
+}
