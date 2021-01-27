@@ -1,0 +1,27 @@
+@import '../../styles/constants.scss';
+
+.todo-checkbox {
+  background: #fff;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $primary;
+  border-radius: 2px;
+  cursor: pointer;
+
+  .check-mark-icon {
+    width: 10px;
+    height: 10px;
+  }
+
+  &.checked {
+    background: $disabled;
+    border: 1px solid $disabled;
+
+    .check-mark-icon {
+      fill: #fff;
+    }
+  }
+}
