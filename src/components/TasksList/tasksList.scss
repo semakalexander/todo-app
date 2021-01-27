@@ -1,0 +1,11 @@
+@import '../../styles/constants.scss';
+
+.todo-tasks-list {
+  color: $primary;
+  border: 2px solid $primary;
+  padding: 20px 10px 20px 20px;
+
+  .todo-input {
+    font-size: 18px;
+  }
+}

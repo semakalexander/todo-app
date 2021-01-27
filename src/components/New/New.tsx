@@ -37,6 +37,9 @@ const New = () => {
     tasksService.addTask(task)
 
     dispatch(tasksActions.addTask(task))
+
+    setDescription('')
+    setDue(null)
   }, [description, due, dispatch])
 
   return (

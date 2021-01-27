@@ -1,0 +1,23 @@
+import React from 'react'
+
+import Task from '../Task/Task'
+
+import { ITask } from '../../types/task'
+
+import './tasksList.scss'
+
+interface ITasksListProps {
+  tasks: ITask[]
+}
+
+const TasksList = ({ tasks }: ITasksListProps) => {
+  return (
+    <div className="todo-tasks-list">
+      {tasks.map(task => (
+        <Task key={task.id} task={task} />
+      ))}
+    </div>
+  )
+}
+
+export default TasksList

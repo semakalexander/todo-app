@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Dashboard from './screens/Dashboard/Dashboard'
+import Incompleted from './screens/Incompleted/Incompleted'
 
 import Tabs from './components/Tabs/Tabs'
 
@@ -55,7 +56,7 @@ function App() {
           </Route>
 
           <Route exact path={`/${TABS.INCOMPLETED}`}>
-            <div>incompleted</div>
+            <Incompleted />
           </Route>
 
           <Route exact path={`/${TABS.COMPLETED}`}>
