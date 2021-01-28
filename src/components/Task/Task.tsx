@@ -1,5 +1,8 @@
 import React, { useCallback, useState } from 'react'
+import moment from 'moment'
 import classnames from 'classnames'
+import { v4 as uuidv4 } from 'uuid'
+import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
 
 import Checkbox from '../Checkbox/Checkbox'
@@ -11,6 +14,8 @@ import * as tasksActions from '../../redux/actions/tasks'
 
 import PencilIcon from '../icons/Pencil'
 import CheckMarkIcon from '../icons/CheckMark'
+import CopyIcon from '../icons/Copy'
+import TrashIcon from '../icons/Trash'
 
 import { ITask } from '../../types/task'
 
@@ -18,9 +23,10 @@ import './task.scss'
 
 interface ITaskProps {
   task: ITask
+  withDuplicateButton?: boolean
 }
 
-const Task = ({ task }: ITaskProps) => {
+const Task = ({ task, withDuplicateButton = false }: ITaskProps) => {
   const dispatch = useDispatch()
 
   const [isEditing, setIsEditing] = useState<boolean>(false)
@@ -63,11 +69,35 @@ const Task = ({ task }: ITaskProps) => {
     setIsEditing(false)
   }, [task, description, due, dispatch])
 
+  const copyTask = useCallback(() => {
+    const duplicate: ITask = {
+      id: uuidv4(),
+      description: task.description,
+      due: null,
+      isCompleted: false,
+    }
+
+    tasksService.addTask(duplicate)
+
+    dispatch(tasksActions.addTask(duplicate))
+
+    toast.success(`Task "${task.description}" was duplicated`)
+  }, [task, dispatch])
+
+  const removeTask = useCallback(() => {
+    tasksService.removeTask(task)
+
+    dispatch(tasksActions.removeTask(task))
+
+    toast.success(`Task "${task.description}" was removed`)
+  }, [task, dispatch])
+
   return (
     <div
       className={classnames({
         'todo-task': true,
         checked: task.isCompleted,
+        past: moment(task.due).isBefore(moment()),
       })}
     >
       <Checkbox checked={task.isCompleted} onClick={toggleTaskStatus} />
@@ -95,6 +125,10 @@ const Task = ({ task }: ITaskProps) => {
         {!task.isCompleted && isEditing && (
           <CheckMarkIcon onClick={saveChanges} />
         )}
+
+        {withDuplicateButton && <CopyIcon onClick={copyTask} />}
+
+        <TrashIcon onClick={removeTask} />
       </div>
     </div>
   )

@@ -1,9 +1,11 @@
 import React, { useMemo, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 
 import Dashboard from './screens/Dashboard/Dashboard'
 import Incompleted from './screens/Incompleted/Incompleted'
+import Completed from './screens/Completed/Completed'
 
 import Tabs from './components/Tabs/Tabs'
 
@@ -60,12 +62,14 @@ function App() {
           </Route>
 
           <Route exact path={`/${TABS.COMPLETED}`}>
-            <div>completed</div>
+            <Completed />
           </Route>
 
           <Redirect to="/dashboard" />
         </Switch>
       </div>
+
+      <ToastContainer autoClose={2500} position="bottom-right" />
     </div>
   )
 }

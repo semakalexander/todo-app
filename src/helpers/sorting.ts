@@ -1,10 +1,12 @@
+import moment from 'moment'
+
 import { ITask } from '../types/task'
 
-export const byDate: (task1: ITask, task2: ITask) => -1 | 0 | 1 = (t1, t2) => {
-  if (t1.isCompleted) {
-    if (t2.isCompleted) return 0
-    return 1
-  }
+export const byDue: (task1: ITask, task2: ITask) => -1 | 0 | 1 = (t1, t2) => {
+  const mDue1 = moment(t1.due)
+  const mDue2 = moment(t2.due)
 
-  return -1
+  if (mDue1.valueOf() === mDue2.valueOf()) return 0
+
+  return mDue1.isBefore(mDue2) ? -1 : 1
 }

@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
+import { toast } from 'react-toastify'
 
 import Button from '../Button/Button'
 import DatePicker from '../DatePicker/DatePicker'
@@ -31,7 +32,6 @@ const New = () => {
       description,
       due,
       isCompleted: false,
-      updatedAt: new Date(),
     }
 
     tasksService.addTask(task)
@@ -40,6 +40,8 @@ const New = () => {
 
     setDescription('')
     setDue(null)
+
+    toast.success(`New task "${task.description}" was created`)
   }, [description, due, dispatch])
 
   return (

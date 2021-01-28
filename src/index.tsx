@@ -7,6 +7,7 @@ import App from './App'
 
 import store from './redux/store'
 
+import 'react-toastify/dist/ReactToastify.css'
 import 'react-datepicker/dist/react-datepicker.css'
 import './index.scss'
 

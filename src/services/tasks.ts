@@ -49,3 +49,9 @@ export const updateTask = (task: ITask): boolean => {
 
   return true
 }
+
+export const removeTask = (task: ITask): void => {
+  const tasks = getTasks()
+
+  setTasks(tasks.filter(t => t.id === task.id))
+}

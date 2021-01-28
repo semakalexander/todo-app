@@ -2,7 +2,6 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 import TasksList from '../../components/TasksList/TasksList'
-import New from '../../components/New/New'
 
 import { byDue } from '../../helpers/sorting'
 
@@ -10,20 +9,16 @@ import { RootReducer } from '../../redux/reducers'
 
 import { ITask } from '../../types/task'
 
-import './incompleted.scss'
-
-const Incompleted = () => {
+const Completed = () => {
   const items = useSelector<RootReducer, ITask[]>(store => store.tasks.items)
 
-  const tasks = items.filter(item => !item.isCompleted).sort(byDue)
+  const tasks = items.filter(item => item.isCompleted).sort(byDue)
 
   return (
-    <div className="incompleted-tasks">
-      <TasksList tasks={tasks} />
-
-      <New />
+    <div className="completed-tasks">
+      <TasksList tasks={tasks} withDuplicateButton />
     </div>
   )
 }
 
-export default Incompleted
+export default Completed

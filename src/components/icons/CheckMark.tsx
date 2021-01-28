@@ -4,7 +4,7 @@ import { IIConProps } from '../../types/icons'
 
 interface ICheckMarkIconProps extends IIConProps {}
 
-const CheckMarkIcon = ({ onClick = () => false }: ICheckMarkIconProps) => (
+const CheckMarkIcon = ({ onClick }: ICheckMarkIconProps) => (
   <svg
     x="0px"
     y="0px"

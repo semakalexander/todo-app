@@ -3,7 +3,7 @@ import { IIConProps } from '../../types/icons'
 
 interface IPencilIconProps extends IIConProps {}
 
-const PencilIcon = ({ onClick = () => false }: IPencilIconProps) => (
+const PencilIcon = ({ onClick }: IPencilIconProps) => (
   <svg
     fill="#000000"
     viewBox="0 0 26 26"

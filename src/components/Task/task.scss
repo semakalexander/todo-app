@@ -44,12 +44,27 @@
 
   .no-due-date-text {
     font-size: 18px;
+    padding-right: 6px;
   }
 
   .check-mark-icon {
     width: 16px;
     height: 16px;
     fill: $primary;
+  }
+
+  .copy-icon {
+    width: 16px;
+    height: 16px;
+    fill: $primary;
+    margin-left: 4px;
+  }
+
+  .trash-icon {
+    width: 18px;
+    height: 18px;
+    fill: $primary;
+    margin-left: 4px;
   }
 
   &.checked {
@@ -62,8 +77,16 @@
       color: $disabled;
     }
 
+    .todo-input {
+      color: $disabled;
+    }
+
     .pencil-icon {
       fill: $disabled;
     }
+  }
+
+  &.past {
+    color: #a45a52;
   }
 }

@@ -3,5 +3,4 @@ export interface ITask {
   description: string
   due: Date | null
   isCompleted: boolean
-  updatedAt: Date
 }

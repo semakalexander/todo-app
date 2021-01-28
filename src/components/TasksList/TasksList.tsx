@@ -8,13 +8,18 @@ import './tasksList.scss'
 
 interface ITasksListProps {
   tasks: ITask[]
+  withDuplicateButton?: boolean
 }
 
-const TasksList = ({ tasks }: ITasksListProps) => {
+const TasksList = ({ tasks, withDuplicateButton = false }: ITasksListProps) => {
   return (
     <div className="todo-tasks-list">
       {tasks.map(task => (
-        <Task key={task.id} task={task} />
+        <Task
+          key={task.id}
+          task={task}
+          withDuplicateButton={withDuplicateButton}
+        />
       ))}
     </div>
   )
