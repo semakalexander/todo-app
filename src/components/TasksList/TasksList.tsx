@@ -14,6 +14,8 @@ interface ITasksListProps {
 const TasksList = ({ tasks, withDuplicateButton = false }: ITasksListProps) => {
   return (
     <div className="todo-tasks-list">
+      {!tasks.length && <p className="empty-text">There is no tasks yet</p>}
+
       {tasks.map(task => (
         <Task
           key={task.id}

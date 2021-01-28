@@ -53,5 +53,5 @@ export const updateTask = (task: ITask): boolean => {
 export const removeTask = (task: ITask): void => {
   const tasks = getTasks()
 
-  setTasks(tasks.filter(t => t.id === task.id))
+  setTasks(tasks.filter(t => t.id !== task.id))
 }
